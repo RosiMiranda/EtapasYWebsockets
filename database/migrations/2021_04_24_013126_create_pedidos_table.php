@@ -15,11 +15,9 @@ class CreatePedidosTable extends Migration
     {
         Schema::create('pedidos', function (Blueprint $table) {
             $table->id();
-            $titulo->varchar(200);
+            $table->string('titulo')->default('Pedido');
+            $table->integer('estado')->default(1);
             $table->timestamps();
-            $table->unsignedBigInteger('transacciones_id');
-            $table->foreign('transacciones_id')->references('id')->on('transacciones')->onDelete('transacciones');
-
         });
     }
 

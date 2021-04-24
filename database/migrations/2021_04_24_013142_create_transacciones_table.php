@@ -15,8 +15,10 @@ class CreateTransaccionesTable extends Migration
     {
         Schema::create('transacciones', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $etapaInicial->varchar(200);
-            $etapaFinal->varchar(200);
+            $table->string('estadoInicial');;
+            $table->string('estadoFinal');;
+            $table->unsignedBigInteger('pedido_id');
+            $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
             $table->timestamps();
 
         });
