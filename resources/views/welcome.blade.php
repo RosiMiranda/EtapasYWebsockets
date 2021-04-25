@@ -36,7 +36,9 @@
                     data:{}
                 })
                 .done(function(response) {
-                    console.log(response);
+                    //console.log(response);
+                    $('.div1-pedidos').append
+                    (' <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> Pedido '  + ' ' + response.id + '</div>');
                 })
                 .fail(function(jqXHR, response) {
                     console.log('Fallido', response);
@@ -55,7 +57,13 @@
     <div>
         <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h4>1. Salida de planta</h4>
-            <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> test </div>
+            <div class="div1-pedidos">
+                @forelse($pedidos as $pedido)
+                    <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                @empty
+                @endforelse
+            </div>
+
         </div>
 
         <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
