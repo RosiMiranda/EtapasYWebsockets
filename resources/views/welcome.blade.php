@@ -29,6 +29,11 @@
                 //get the variables for DB update
                 const finalState = parseInt(ev.path[0].id.substr(ev.path[0].id.length-1,ev.path[0].id.length))
 
+                // if goes to complete then set draggable to false
+                if(finalState == 4){
+                    ev.path[0].lastElementChild.draggable = false
+                }
+
                 let url = "{{ route('pedidos.update', 0)}}";
                 let updUrl = url + idSelected;
 
@@ -117,16 +122,16 @@
 
                 <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
                         <h4>4. Entregado</h4>
-                    <div id="divh1">
+                    <div id="divh4">
                         <p>a. Completa</p>
                         <div class="div4-pedidos">
                             @forelse($four as $pedido)
-                                <div draggable="false" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                                <div  id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                             @empty
                             @endforelse
                         </div>
                     </div>
-                    <div id="divh2">
+                    <div id="divh5">
                         <p>b.Fallida</p>
                         <div class="div5-pedidos">
                             @forelse($five as $pedido)

@@ -7,7 +7,7 @@
     padding: 10px;
     border: 1px solid black;
 }
-#divh1, #divh2{
+#divh4, #divh5{
     width: 180px;
     height: 200px;
     border: 1px solid black;
@@ -23,9 +23,6 @@ h4, h2{
     height: 31px;
     margin : 5px;
     text-align: center;
-
-}
-.row-width{
 
 }
 
