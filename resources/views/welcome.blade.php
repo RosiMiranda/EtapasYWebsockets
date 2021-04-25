@@ -59,7 +59,7 @@
             <h4>1. Salida de planta</h4>
             <div class="div1-pedidos">
                 @forelse($one as $pedido)
-                    <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                    <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                 @empty
                 @endforelse
             </div>
@@ -69,7 +69,7 @@
             <h4>2. En Local Delivery Center</h4>
             <div class="div1-pedidos">
                 @forelse($two as $pedido)
-                    <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                    <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                 @empty
                 @endforelse
             </div>
@@ -79,7 +79,7 @@
             <h4>3. En proceso de entrega</h4>
             <div class="div1-pedidos">
                 @forelse($three as $pedido)
-                    <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                    <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                 @empty
                 @endforelse
             </div>
@@ -91,7 +91,7 @@
                 <p>a. Completa</p>
                 <div class="div1-pedidos">
                     @forelse($four as $pedido)
-                        <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                        <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                     @empty
                     @endforelse
                 </div>
@@ -100,7 +100,7 @@
                 <p>b.Fallida</p>
                 <div class="div1-pedidos">
                     @forelse($five as $pedido)
-                        <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                        <div draggable="false" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                     @empty
                     @endforelse
                 </div>
