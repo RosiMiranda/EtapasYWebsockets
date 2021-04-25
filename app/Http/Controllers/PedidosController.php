@@ -36,14 +36,13 @@ class PedidosController extends Controller
      */
     public function store(Request $request)
     {
- 
-        dd($request);
+
         $pedido = Pedido::create();
         return response()->json($pedido);
-        
+
     }
 
-   
+
 
     /**
      * Display the specified resource.

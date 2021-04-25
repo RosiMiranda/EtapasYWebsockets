@@ -1,0 +1,31 @@
+#div1, #div2, #div3, #div4{
+
+    float: left;
+    width: 200px;
+    height: 500px;
+    margin: 25px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#divh1, #divh2{
+    width: 180px;
+    height: 200px;
+    border: 1px solid black;
+}
+h4{
+    padding: 0;
+    margin : 3px;
+
+}
+
+.pedidoCard{
+    background-color: darkcyan;
+    width: 90%;
+    height: 31px;
+    margin : 5px;
+    text-align: center;
+
+}
+.row-width{
+    width: 70%;
+}
