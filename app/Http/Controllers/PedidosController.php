@@ -14,8 +14,14 @@ class PedidosController extends Controller
      */
     public function index()
     {
-        $pedido = Pedido::all();
-        return view('welcome', ['pedidos' => $pedido]);
+        // get each id
+        $pedidoOnOne = Pedido::where('estado','=', 1)->get();
+        $pedidoOnTwo = Pedido::where('estado','=', 2)->get();
+        $pedidoOnThree = Pedido::where('estado','=', 3)->get();
+        $pedidoOnFour = Pedido::where('estado','=', 4)->get();
+        $pedidoOnFive = Pedido::where('estado','=', 5)->get();
+
+        return view('welcome', ['one' => $pedidoOnOne,'two' => $pedidoOnTwo, 'three' => $pedidoOnThree, 'four' => $pedidoOnFour, 'five' => $pedidoOnFive ]);
     }
 
     /**

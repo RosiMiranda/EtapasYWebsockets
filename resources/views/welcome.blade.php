@@ -58,26 +58,53 @@
         <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h4>1. Salida de planta</h4>
             <div class="div1-pedidos">
-                @forelse($pedidos as $pedido)
+                @forelse($one as $pedido)
                     <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                 @empty
                 @endforelse
             </div>
-
         </div>
 
         <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h4>2. En Local Delivery Center</h4>
+            <div class="div1-pedidos">
+                @forelse($two as $pedido)
+                    <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                @empty
+                @endforelse
+            </div>
         </div>
 
         <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h4>3. En proceso de entrega</h4>
+            <div class="div1-pedidos">
+                @forelse($three as $pedido)
+                    <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                @empty
+                @endforelse
+            </div>
         </div>
 
         <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h4>4. Entregado</h4>
-            <div id="divh1"><p>a. Completa</p></div>
-            <div id="divh2"><p>b.Fallida</p></div>
+            <div id="divh1">
+                <p>a. Completa</p>
+                <div class="div1-pedidos">
+                    @forelse($four as $pedido)
+                        <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                    @empty
+                    @endforelse
+                </div>
+            </div>
+            <div id="divh2">
+                <p>b.Fallida</p>
+                <div class="div1-pedidos">
+                    @forelse($five as $pedido)
+                        <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                    @empty
+                    @endforelse
+                </div>
+            </div>
 
         </div>
     </div>
