@@ -59,7 +59,7 @@
             </div>
             <!-- columnas de stado -->
             <div class="row justify-content-between row-width">
-                <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="div1"  ondragover="allowDrop(event)">
                     <h4>1. Salida de planta</h4>
                     <div class="div1-pedidos">
                         @forelse($one as $pedido)
@@ -95,7 +95,7 @@
                         <p>a. Completa</p>
                         <div class="div4-pedidos">
                             @forelse($four as $pedido)
-                                <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                                <div draggable="false" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                             @empty
                             @endforelse
                         </div>
@@ -104,7 +104,7 @@
                         <p>b.Fallida</p>
                         <div class="div5-pedidos">
                             @forelse($five as $pedido)
-                                <div draggable="false" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
+                                <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                             @empty
                             @endforelse
                     </div>

@@ -81,7 +81,18 @@ class PedidosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pedido=Pedido::find($id);
+        // estado para transaccion
+        $estadoInicial = $pedido->estado;
+        $estadoFinal = $request->estado;
+        // cambiar estado en pedido
+        $pedido-> estado = $estadoFinal;
+        $pedido->save();
+        // create transaction
+        $transaccion = Transaccion::create();
+        return response()->json($pedido);
+
+
     }
 
     /**
