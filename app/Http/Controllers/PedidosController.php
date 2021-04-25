@@ -86,15 +86,18 @@ class PedidosController extends Controller
         // estado para transaccion
         $estadoInicial = $pedido->estado;
         $estadoFinal = $request->estado;
-        // cambiar estado en pedido
-        $pedido-> estado = $estadoFinal;
-        $pedido->save();
-        // create transaction
-        $transaccion = new Transaccion();
-        $transaccion -> estadoInicial = $estadoInicial;
-        $transaccion -> estadoFinal = $estadoFinal;
-        $transaccion -> pedido_id = $id;
-        $transaccion -> save();
+
+        if($estadoFinal != $estadoInicial){
+            // cambiar estado en pedido
+            $pedido-> estado = $estadoFinal;
+            $pedido->save();
+            // create transaction
+            $transaccion = new Transaccion();
+            $transaccion -> estadoInicial = $estadoInicial;
+            $transaccion -> estadoFinal = $estadoFinal;
+            $transaccion -> pedido_id = $id;
+            $transaccion -> save();
+        }
 
         return response()->json($pedido);
 

@@ -28,7 +28,6 @@
 
                 //get the variables for DB update
                 const finalState = parseInt(ev.path[0].id.substr(ev.path[0].id.length-1,ev.path[0].id.length))
-                console.log(idSelected);
 
                 let url = "{{ route('pedidos.update', 0)}}";
                 let updUrl = url + idSelected;
