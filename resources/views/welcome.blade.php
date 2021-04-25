@@ -67,7 +67,7 @@
 
         <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h4>2. En Local Delivery Center</h4>
-            <div class="div1-pedidos">
+            <div class="div2-pedidos">
                 @forelse($two as $pedido)
                     <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                 @empty
@@ -77,7 +77,7 @@
 
         <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
             <h4>3. En proceso de entrega</h4>
-            <div class="div1-pedidos">
+            <div class="div3-pedidos">
                 @forelse($three as $pedido)
                     <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                 @empty
@@ -89,7 +89,7 @@
             <h4>4. Entregado</h4>
             <div id="divh1">
                 <p>a. Completa</p>
-                <div class="div1-pedidos">
+                <div class="div4-pedidos">
                     @forelse($four as $pedido)
                         <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                     @empty
@@ -98,7 +98,7 @@
             </div>
             <div id="divh2">
                 <p>b.Fallida</p>
-                <div class="div1-pedidos">
+                <div class="div5-pedidos">
                     @forelse($five as $pedido)
                         <div draggable="false" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                     @empty
