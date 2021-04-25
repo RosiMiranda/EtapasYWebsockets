@@ -12,10 +12,9 @@
     height: 200px;
     border: 1px solid black;
 }
-h4{
-    padding: 0;
+h4, h2{
+    padding: 0 !important;
     margin : 3px;
-
 }
 
 .pedidoCard{
@@ -27,5 +26,9 @@ h4{
 
 }
 .row-width{
-    width: 70%;
+
+}
+
+.col-12{
+    padding-left: 0px;
 }
