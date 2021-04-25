@@ -10,19 +10,46 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 
         <script>
-        function allowDrop(ev) {
-            ev.preventDefault();
-        }
+            let idSelected = 0;
+            function allowDrop(ev) {
+                ev.preventDefault();
+            }
 
-        function drag(ev) {
-            ev.dataTransfer.setData("text", ev.target.id);
-        }
+            function drag(ev) {
+                idSelected = parseInt(ev.path[0].id);
+                ev.dataTransfer.setData("text", ev.target.id);
+            }
 
-        function drop(ev) {
-            ev.preventDefault();
-            var data = ev.dataTransfer.getData("text");
-            ev.target.appendChild(document.getElementById(data));
-        }
+            function drop(ev) {
+                // do the grag things
+                ev.preventDefault();
+                var data = ev.dataTransfer.getData("text");
+                ev.target.appendChild(document.getElementById(data));
+
+                //get the variables for DB update
+                const finalState = parseInt(ev.path[0].id.substr(ev.path[0].id.length-1,ev.path[0].id.length))
+                console.log(idSelected);
+
+                let url = "{{ route('pedidos.update', 0)}}";
+                let updUrl = url + idSelected;
+
+
+                $.ajax({
+                    url: updUrl,
+                    method: 'PUT',
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                    data: {
+                        estado : finalState
+                    }
+                }).done((res) => {
+                    console.log(res)
+                }).fail((jqXHR, res)=> {
+                    console.log('Fallido', res);
+                })
+            }
         </script>
         <script>
             function createPedido() {

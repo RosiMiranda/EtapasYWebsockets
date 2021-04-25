@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pedido;
+use App\Transaccion;
 
 class PedidosController extends Controller
 {
@@ -89,7 +90,12 @@ class PedidosController extends Controller
         $pedido-> estado = $estadoFinal;
         $pedido->save();
         // create transaction
-        $transaccion = Transaccion::create();
+        $transaccion = new Transaccion();
+        $transaccion -> estadoInicial = $estadoInicial;
+        $transaccion -> estadoFinal = $estadoFinal;
+        $transaccion -> pedido_id = $id;
+        $transaccion -> save();
+
         return response()->json($pedido);
 
 
