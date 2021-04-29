@@ -49,7 +49,7 @@
                         estado : finalState
                     }
                 }).done((res) => {
-                    console.log(res)
+                    console.log('Updated')
                 }).fail((jqXHR, res)=> {
                     console.log('Fallido', res);
                 })
@@ -84,9 +84,9 @@
             <!-- header -->
             <div style="padding:30px" class="row justify-content-between row-width">
                 <div class="col-12"><h2>Dashboard</h2></div>
-                <button class="btn-primary" onclick="createPedido();"> Crear un pedido </button>
+                <button class="btn-primary" onclick="movementDone();"> Crear un pedido </button>
                 <!-- alerta -->
-                <div class="btn-success"> Alertita ahahahahahahahaha :) </div>
+                <div class="btn-success" id="my-alert"> Dashboard tiene nueva transaccion </div>
             </div>
             <!-- columnas de stado -->
             <div class="row justify-content-between row-width">
@@ -142,6 +142,26 @@
                 </div>
             </div>
         </div>
+        <script src="{{ asset('js/app.js') }}"></script>
+        <script>
+            Echo.channel('pedido').listen('PedidoEvent', (e) => {
+                // ALERT
+                document.getElementById('my-alert').style.display = 'block';
+                setTimeout(function(){
+                    document.getElementById('my-alert').style.display = 'none';
+                }, 5000);
+
+                // MOVE PEDIDO
+                // obtener div del pedido
+                const pedido =  document.getElementById(e.transaccion.pedido_id);
+
+                const divParent = 'div' + e.transaccion.estadoFinal + '-pedidos'
+                // if final state = complete then change draggle att to false
+                if(e.transaccion.estadoFinal == "4") pedido.draggable = false
+                // add
+                $('.' + divParent).append(pedido);
+            })
+        </script>
     </body>
 </html>
 

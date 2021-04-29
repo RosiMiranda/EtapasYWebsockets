@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pedido;
 use App\Transaccion;
+use App\Events\PedidoEvent;
 
 class PedidosController extends Controller
 {
@@ -98,6 +99,8 @@ class PedidosController extends Controller
             $transaccion -> pedido_id = $id;
             $transaccion -> save();
         }
+
+        event(new PedidoEvent( $transaccion));
 
         return response()->json($pedido);
 

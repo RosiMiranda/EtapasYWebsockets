@@ -29,3 +29,7 @@ h4, h2{
 .col-12{
     padding-left: 0px;
 }
+
+#my-alert{
+    display: none;
+}

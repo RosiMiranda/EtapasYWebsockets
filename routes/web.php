@@ -14,6 +14,6 @@ use App\Http\Controllers\AppController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('pedidos');
 });
 Route::resource('pedidos', 'PedidosController');
