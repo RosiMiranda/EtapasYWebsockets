@@ -90,9 +90,9 @@
             </div>
             <!-- columnas de stado -->
             <div class="row justify-content-between row-width">
-                <div id="div1"  ondragover="allowDrop(event)">
+                <div id="div1">
                     <h4>1. Salida de planta</h4>
-                    <div class="div1-pedidos">
+                    <div class="div1-pedidos" ondragover="allowDrop(event)">
                         @forelse($one as $pedido)
                             <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                         @empty
@@ -100,9 +100,9 @@
                     </div>
                 </div>
 
-                <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="div2" >
                     <h4>2. En Local Delivery Center</h4>
-                    <div class="div2-pedidos">
+                    <div class="div2-pedidos" ondrop="drop(event)" ondragover="allowDrop(event)">
                         @forelse($two as $pedido)
                             <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                         @empty
@@ -110,9 +110,9 @@
                     </div>
                 </div>
 
-                <div id="div3" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="div3">
                     <h4>3. En proceso de entrega</h4>
-                    <div class="div3-pedidos">
+                    <div class="div3-pedidos" ondrop="drop(event)" ondragover="allowDrop(event)">
                         @forelse($three as $pedido)
                             <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                         @empty
@@ -120,11 +120,11 @@
                     </div>
                 </div>
 
-                <div id="div4" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div id="div4">
                         <h4>4. Entregado</h4>
                     <div id="divh4">
                         <p>a. Completa</p>
-                        <div class="div4-pedidos">
+                        <div class="div4-pedidos"  ondrop="drop(event)">
                             @forelse($four as $pedido)
                                 <div  id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                             @empty
@@ -133,7 +133,7 @@
                     </div>
                     <div id="divh5">
                         <p>b.Fallida</p>
-                        <div class="div5-pedidos">
+                        <div class="div5-pedidos"  ondrop="drop(event)" ondragover="allowDrop(event)">
                             @forelse($five as $pedido)
                                 <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                             @empty

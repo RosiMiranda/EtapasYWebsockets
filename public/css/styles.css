@@ -33,3 +33,7 @@ h4, h2{
 #my-alert{
     display: none;
 }
+
+.div1-pedidos,.div2-pedidos,.div3-pedidos,.div4-pedidos,.div5-pedidos{
+    height: 100%;
+}
