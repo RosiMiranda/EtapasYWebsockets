@@ -27,7 +27,12 @@
                 ev.target.appendChild(document.getElementById(data));
 
                 //get the variables for DB update
-                const finalState = parseInt(ev.path[0].id.substr(ev.path[0].id.length-1,ev.path[0].id.length))
+                const finalState = parseInt(ev.path[0].id.substr(3,4))
+                console.log(finalState)
+
+                console.log(ev)
+
+
 
                 // if goes to complete then set draggable to false
                 if(finalState == 4){
@@ -92,7 +97,7 @@
             <div class="row justify-content-between row-width">
                 <div id="div1">
                     <h4>1. Salida de planta</h4>
-                    <div class="div1-pedidos" ondragover="allowDrop(event)">
+                    <div class="div1-pedidos" id="div1-pedidos" ondragover="allowDrop(event)">
                         @forelse($one as $pedido)
                             <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                         @empty
@@ -102,7 +107,7 @@
 
                 <div id="div2" >
                     <h4>2. En Local Delivery Center</h4>
-                    <div class="div2-pedidos" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="div2-pedidos" id="div2-pedidos" ondrop="drop(event)" ondragover="allowDrop(event)">
                         @forelse($two as $pedido)
                             <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                         @empty
@@ -112,7 +117,7 @@
 
                 <div id="div3">
                     <h4>3. En proceso de entrega</h4>
-                    <div class="div3-pedidos" ondrop="drop(event)" ondragover="allowDrop(event)">
+                    <div class="div3-pedidos" id="div3-pedidos" ondrop="drop(event)" ondragover="allowDrop(event)">
                         @forelse($three as $pedido)
                             <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                         @empty
@@ -124,7 +129,7 @@
                         <h4>4. Entregado</h4>
                     <div id="divh4">
                         <p>a. Completa</p>
-                        <div class="div4-pedidos"  ondrop="drop(event)">
+                        <div class="div4-pedidos"  id="div4-pedidos" ondrop="drop(event)">
                             @forelse($four as $pedido)
                                 <div  id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                             @empty
@@ -133,7 +138,7 @@
                     </div>
                     <div id="divh5">
                         <p>b.Fallida</p>
-                        <div class="div5-pedidos"  ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <div class="div5-pedidos"  id="div5-pedidos" ondrop="drop(event)" ondragover="allowDrop(event)">
                             @forelse($five as $pedido)
                                 <div draggable="true" ondragstart="drag(event)" id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                             @empty
