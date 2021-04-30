@@ -84,7 +84,7 @@
             <!-- header -->
             <div style="padding:30px" class="row justify-content-between row-width">
                 <div class="col-12"><h2>Dashboard</h2></div>
-                <button class="btn-primary" onclick="movementDone();"> Crear un pedido </button>
+                <button class="btn-primary" onclick="createPedido();"> Crear un pedido </button>
                 <!-- alerta -->
                 <div class="btn-success" id="my-alert"> Dashboard tiene nueva transaccion </div>
             </div>
