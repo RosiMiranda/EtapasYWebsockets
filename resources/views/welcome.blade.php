@@ -28,11 +28,6 @@
 
                 //get the variables for DB update
                 const finalState = parseInt(ev.path[0].id.substr(3,4))
-                console.log(finalState)
-
-                console.log(ev)
-
-
 
                 // if goes to complete then set draggable to false
                 if(finalState == 4){
@@ -129,7 +124,7 @@
                         <h4>4. Entregado</h4>
                     <div id="divh4">
                         <p>a. Completa</p>
-                        <div class="div4-pedidos"  id="div4-pedidos" ondrop="drop(event)">
+                        <div class="div4-pedidos"  id="div4-pedidos" ondrop="drop(event)" ondragover="allowDrop(event)">
                             @forelse($four as $pedido)
                                 <div  id="{{$pedido->id}}" class="pedidoCard"> {{$pedido->titulo}} {{$pedido->id}} </div>
                             @empty
