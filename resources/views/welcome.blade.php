@@ -28,6 +28,7 @@
 
                 //get the variables for DB update
                 const finalState = parseInt(ev.path[0].id.substr(3,4))
+                console.log(finalState)
 
                 // if goes to complete then set draggable to false
                 if(finalState == 4){
@@ -69,7 +70,7 @@
                 .done(function(response) {
                     //console.log(response);
                     $('.div1-pedidos').append
-                    (' <div draggable="true" ondragstart="drag(event)" id="drag2" class="pedidoCard"> Pedido '  + ' ' + response.id + '</div>');
+                    (' <div draggable="true" ondragstart="drag(event)" id="'+response.id+'" class="pedidoCard"> Pedido '  + ' ' + response.id + '</div>');
                 })
                 .fail(function(jqXHR, response) {
                     console.log('Fallido', response);
